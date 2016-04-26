@@ -65,10 +65,9 @@ app.controller('inputController', function ($scope, mealDataService) {
         $scope.getTotals();
 
     };
-
+    //Update Earnings Info
     $scope.getTotals = function () {
         var tipTotal = mealDataService.getTotals().tipTotal;
-        console.log(tipTotal);
         var mealCount = mealDataService.getTotals().mealCount;
         var tipAvg = mealDataService.getTotals().tipAvg;
         $scope.tipTotal = tipTotal;
@@ -76,22 +75,30 @@ app.controller('inputController', function ($scope, mealDataService) {
         $scope.tipAvg = tipAvg;
     }
     $scope.getTotals();
-    console.log($scope.tipTotal);
 
+    //Reset
+    $scope.reset = function () {
+        $scope.data = {};
+        $scope.tipTotal = 0;
+        $scope.mealCount = 0;
+        $scope.tipAvg = 0;
+        mealDataService.reset();
+    };
 });
 
+
 /*app.controller('chargesController', function ($scope, mealDataService) {
-    $scope.getMeals = function () {
-        var meals = mealDataService.getMeals();
-        $scope.meals = meals;
+            $scope.getMeals = function () {
+                var meals = mealDataService.getMeals();
+                $scope.meals = meals;
 
-    };
+            };
 
-    $scope.getMeals();
-    console.log($scope.meals);
-    $scope.mealCount = $scope.meals.length;
+            $scope.getMeals();
+            console.log($scope.meals);
+            $scope.mealCount = $scope.meals.length;
 
-});*/
+        });*/
 
 /*app.controller('earningsController', function ($scope, mealDataService) {
     console.log(mealDataService);
