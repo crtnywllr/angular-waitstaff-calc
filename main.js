@@ -78,11 +78,7 @@ app.controller('inputController', function ($scope, mealDataService) {
 
     //Reset
     $scope.reset = function () {
-        $scope.data = {};
-        $scope.tipTotal = 0;
-        $scope.mealCount = 0;
-        $scope.tipAvg = 0;
-        mealDataService.reset();
+        location.reload();
     };
 });
 
