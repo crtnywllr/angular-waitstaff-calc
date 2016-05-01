@@ -1,0 +1,34 @@
+<section class="meal">
+    <h3>Meal Details:</h3>
+    <br>
+    <form name="mealInput" ng-submit="submit()" novalidate>
+        <div class="form-group">
+            <label for="price">Base Meal Price: $</label>
+            <input type="number" class="form-control" name="price" ng-model="price" min="0" step=".01" placeholder="0.00" required/>
+            <div class='errorMsg' ng-if="mealInput.price.$touched" ng-messages="mealInput.price.$error">
+                <div ng-message="required">Please enter a number</div>
+                <div ng-message="number">Only digits, please!</div>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="tax">Tax Rate: %</label>
+            <input type="number" class="form-control" name="tax" ng-model="tax" placeholder="0.00" min="0" max="100" step=".01" required/>
+            <div class='errorMsg' ng-if="mealInput.tax.$touched" ng-messages="mealInput.tax.$error">
+                <div ng-message="required">Please enter a number</div>
+                <div ng-message="number">Only digits, please!</div>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="tip">Tip Percentage: %</label>
+            <input type="number" class="form-control" name="tip" ng-model="tip" placeholder="0.00" min="0" max="100" step=".01" required/>
+            <div class='errorMsg' ng-if="mealInput.tip.$touched" ng-messages="mealInput.tip.$error">
+                <div ng-message="required">Please enter a number</div>
+                <div ng-message="number">Only digits, please!</div>
+            </div>
+        </div>
+        <div>
+            <button class="btn btn-default" type="submit">Add Meal</button>
+            <button type="reset" ng-click="cancelForm()" class="btn btn-default">Cancel</button>
+        </div>
+    </form>
+</section>
