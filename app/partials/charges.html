@@ -1,0 +1,13 @@
+<div class="charges">
+    <h3>Overview for Meal {{mealCount}}:</h3>
+    <button ng-click="back()" class="btn btn-default btn-sm">Previous Meal</button>
+    <button ng-click="forward()" class="btn btn-default btn-sm">Next Meal</button>
+    <br>
+    <br>
+    <div>
+        <p>Subtotal: <em><span ng-repeat="meal in meals" ng-show="$index==(mealCount-1)">{{meal.subtotal | currency}}</span></em></p>
+        <p>Tip: <em><span  ng-repeat="meal in meals" ng-show="$index==(mealCount-1)">{{meal.tipAmt | currency}}</span></em></p>
+        <hr>
+        <p>Total:<em><span  ng-repeat="meal in meals" ng-show="$index==(mealCount-1)">{{meal.total | currency}}</span></em></p>
+    </div>
+</div>
