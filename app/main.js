@@ -1,4 +1,4 @@
-var app = angular.module('myApp', ['ngMessages', 'ngRoute']);
+var app = angular.module('myApp', ['ngMessages', 'ngRoute', 'ngAnimate']);
 
 app.config(function ($routeProvider) {
     $routeProvider
@@ -58,7 +58,7 @@ app.service("mealDataService", function () {
 
 });
 
-app.controller('inputController', function ($scope, mealDataService) {
+app.controller('inputController', function ($scope, mealDataService, $timeout) {
     $scope.mealCount = 0;
 
     $scope.submit = function () {
@@ -81,11 +81,23 @@ app.controller('inputController', function ($scope, mealDataService) {
             //console.log(meal.total);
         }
         mealDataService.addMeal(meal);
-        //console.log(mealDataService);
-        //console.log('meal' + meal);
+
+
 
     };
 
+    //Animate message
+    $scope.show = false;
+    $scope.addMessage = function () {
+        $scope.show = true;
+        $timeout(function () {
+            hideMsg();
+        }, 2000);
+    }
+
+    function hideMsg() {
+        $scope.show = false;
+    }
 });
 
 

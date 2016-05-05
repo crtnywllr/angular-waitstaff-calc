@@ -27,8 +27,10 @@
             </div>
         </div>
         <div>
-            <button class="btn btn-default" type="submit">Add Meal</button>
+
+            <button class="btn btn-default" ng-click="addMessage()" type="submit">Add Meal</button>
             <button type="reset" ng-click="cancelForm()" class="btn btn-default">Cancel</button>
+            <div ng-show="show">Your meal has been added!</div>
         </div>
     </form>
 </section>
